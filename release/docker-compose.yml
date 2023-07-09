@@ -11,7 +11,7 @@ services:
     restart: always
     image: jhorn00/findash-nginx:latest
     ports:
-      - '3050:80'
+      - '80:80'
   api:
     image: jhorn00/findash-server:latest
     environment:
