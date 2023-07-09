@@ -28,6 +28,12 @@ app.use("/transactions", transactionRouter);
 app.use("/accounts", accountRouter);
 app.use("/balances", balanceRouter);
 
+// Verify responsiveness
+app.get("/", (req, res) => {
+  const responseText = "API is talking.";
+  res.send(responseText);
+});
+
 app.listen(5000, (err?: Error) => {
   if (err) {
     console.error(err);
