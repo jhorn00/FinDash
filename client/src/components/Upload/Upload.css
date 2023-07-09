@@ -1,0 +1,13 @@
+.form-control[type="number"] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}
+
+.form-control[type="text"] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+}

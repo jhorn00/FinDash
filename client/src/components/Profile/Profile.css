@@ -1,0 +1,14 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload {
+    width: 50%;
+}
+
+.deletion {
+    padding-top: 50px;
+}

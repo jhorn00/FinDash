@@ -1,0 +1,22 @@
+.balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+  
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+  
+.graph {
+    width: 100%;
+}
+
+.btn-group {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
