@@ -1,0 +1,48 @@
+name: Docker Build
+
+on:
+  workflow_run:
+    workflows: ["Unit Tests"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Docker Login
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_TOKEN_RW: ${{ secrets.DOCKER_TOKEN_RW }}
+        run: |
+          echo "$DOCKER_TOKEN_RW" | docker login --username $DOCKER_USERNAME --password-stdin
+
+      - name: Build and Push Client Image
+        working-directory: client
+        run: |
+          docker build -f Dockerfile.dev -t jhorn00/findash-client:latest .
+          docker push jhorn00/findash-client:latest
+
+      - name: Build and Push Server Image
+        working-directory: server
+        run: |
+          docker build -f Dockerfile.dev -t jhorn00/findash-server:latest .
+          docker push jhorn00/findash-server:latest
+
+# TODO: Change from dev to Dockerfile
+      - name: Build and Push Nginx Image
+        working-directory: nginx
+        run: |
+          docker build -f Dockerfile.dev -t jhorn00/findash-nginx:latest .
+          docker push jhorn00/findash-nginx:latest
+
+# TODO: Need to switch up the database credentials
+      - name: Build and Push Postgres Image
+        working-directory: postgres
+        run: |
+          docker build -f Dockerfile -t jhorn00/findash-pg:latest .
+          docker push jhorn00/findash-pg:latest

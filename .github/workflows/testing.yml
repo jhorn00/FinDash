@@ -1,0 +1,40 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # - name: Install client dependencies
+      #   working-directory: client
+      #   run: npm ci
+
+      # - name: Run client unit tests
+      #   working-directory: client/test
+      #   run: npm test
+
+      - name: Install server dependencies
+        working-directory: server
+        run: npm ci
+
+      - name: Run server unit tests
+        working-directory: server/test
+        run: npm test
