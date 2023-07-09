@@ -29,7 +29,7 @@ app.use("/accounts", accountRouter);
 app.use("/balances", balanceRouter);
 
 // Verify responsiveness
-app.get("/", (req, res) => {
+app.get("/verify", (req, res) => {
   const responseText = "API is talking.";
   res.send(responseText);
 });
