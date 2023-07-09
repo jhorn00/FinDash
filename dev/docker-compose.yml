@@ -3,7 +3,7 @@ services:
   postgres:
     build:
       dockerfile: Dockerfile
-      context: './postgres'
+      context: '../postgres'
     environment:
       - POSTGRES_PASSWORD=postgres_password
   nginx:
@@ -13,16 +13,16 @@ services:
     restart: always
     build:
       dockerfile: Dockerfile.dev
-      context: ./nginx
+      context: ../nginx
     ports:
       - '3050:80'
   api:
     build:
       dockerfile: Dockerfile.dev
-      context: './server'
+      context: '../server'
     volumes:
       - /app/node_modules
-      - ./server:/app
+      - ../server:/app
     environment:
       - PGUSER=postgres
       - PGHOST=postgres
@@ -33,7 +33,7 @@ services:
     stdin_open: true
     build:
       dockerfile: Dockerfile.dev
-      context: './client'
+      context: '../client'
     volumes:
       - /app/node_modules
-      - ./client:/app
+      - ../client:/app

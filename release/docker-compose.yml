@@ -1,0 +1,31 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=postgres_password
+  nginx:
+    depends_on:
+      - api
+      - client
+    restart: always
+    image: nginx:latest
+    ports:
+      - '3050:80'
+  api:
+    image: jhorn00/findash-server:latest
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+  client:
+    stdin_open: true
+    image: jhorn00/findash-client:latest
+    volumes:
+      - /app/node_modules
+      - ./client:/app
