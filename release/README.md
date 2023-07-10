@@ -11,7 +11,9 @@ It is also assumed that if you are following these steps, you have this director
 1. If you have not done so already, log into docker, then follow the prompts to log in: ```docker login```
 2. Run the start script: ```./start.bash```
 3. To stop: ```Ctrl+C``` (Recommended to let it stop gracefully)  
-That's it! The setup is relatively straight-forward, so docker-compose and docker should handle it all for you.
+
+That's it! The setup is relatively straight-forward, so docker-compose and docker should handle it all for you.  
+
 You can test your installation by opening localhost on a browser (or whatever IP your machine is available on).
 
 ## Troubleshooting

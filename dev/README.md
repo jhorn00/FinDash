@@ -10,8 +10,11 @@ The following assumes you are in a Linux environment with docker and docker-comp
 It is also assumed that if you are following these steps, you have this repository cloned locally.
 1. Run the start script: ```./start.bash```
 2. To stop: ```Ctrl+C``` (Recommended to let it stop gracefully)  
+
 That's it! The setup is relatively straight-forward, so docker-compose and docker should handle it all for you.  
+
 You can test your installation by opening localhost on a browser (or whatever IP your machine is available on).  
+
 All client and server code changes should apply when the file is saved. When new files are added, new packages are added, docker changes are made, it is recommended to stop the developer environment and start it again.
 
 ## Troubleshooting
