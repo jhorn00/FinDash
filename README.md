@@ -1,9 +1,10 @@
 # FinanceDashboard
-Financial dashboard application aimed at data visualization for user transaction data.<br>
+Financial dashboard application aimed at data visualization for user transaction data.  
+
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
 ## Status
-This project is a work-in-progress. [The author](https://github.com/jhorn00) works full-time as a SWE and lacks the time to work this project daily, weekly, or even monthly. Progress will continue, one way or another.  
+This project is a work-in-progress. [The author](https://github.com/jhorn00) works full-time as a SWE and lacks the time to work this project daily, weekly, or even monthly. Progress will continue, one way or another.</br>
 A sample release is available to mess with [here](http://dawsonhorn.net/).
 
 ## Future Plans
