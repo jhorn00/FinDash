@@ -18,4 +18,5 @@ The following are planned features or improvements:
 ## Note
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
-Written by: [James Dawson Horn](https://github.com/jhorn00)
+## Author
+- [James Dawson Horn](https://github.com/jhorn00)
