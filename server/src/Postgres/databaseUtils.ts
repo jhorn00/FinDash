@@ -127,11 +127,19 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
                     console.error(err);
                     // Issue error response
                     reject({code: 400, success: false, message: "An error occurred. Check the file format."});
+                    return;
+                }
+                
+                // Make sure records was populated correctly (this has been triggered in the past)
+                if (!records || !records.length){
+                    reject({code: 400, success: false, message: "ERROR: File record is undefined or does not possess a length."});
+                    return;
                 }
             
                 // If records are empty
                 if (records.length == 0){
                     reject({code: 400, success: false, message: "ERROR: File record is empty (no data found)."});
+                    return;
                 }
             
                 // Validate content types
@@ -144,6 +152,7 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
                     if (isNaN(parsedDate)){
                         console.log("Invalid type discovered! Expected valid Date format.");
                         reject({code: 400, success: false, message: "ERROR: Date column contains non-date type(s) or unaccepted date format."});
+                        return;
                     }
                     // Insert valid date into dates list
                     dates.push(String(row.date));
@@ -154,6 +163,7 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
                     if (isNaN(numberValue)){
                         console.log("Invalid type of: " + typeof numberValue + " Expected type number.");
                         reject({code: 400, success: false, message: "ERROR: Value column contains non-number type(s)."});
+                        return;
                     }
                     // Insert valid value into values list
                     values.push(numberValue);
@@ -165,6 +175,7 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
                 if (dates.length != values.length){
                     // This should not happen
                     reject({code: 400, success: false, message: "ERROR: dates and values are different lengths."});
+                    return;
                 }
                 resolve({code: 200, success: true, message: 'Success: File contents parsed properly.', dates: dates, values: values});
             });
