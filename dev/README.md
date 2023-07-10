@@ -1,5 +1,5 @@
 # Development
-This directory contains the base files necessary to deploy a developer environment
+This directory contains the files for deployment a developer environment.
 
 ## Notes
 - At present, stopping the deployment will result in the database being cleared.

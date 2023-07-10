@@ -1,5 +1,5 @@
 # Release
-This directory contains the base files necessary for a release deployment.
+This directory contains the base files used in a release deployment.
 
 ## Notes
 - At present, stopping the deployment will result in the database being cleared.
