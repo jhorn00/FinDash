@@ -1,6 +1,5 @@
 # FinanceDashboard
-Financial dashboard application aimed at data visualization for user transaction data.  
-
+Financial dashboard application aimed at data visualization for user transaction data.<br>
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
 ## Status
