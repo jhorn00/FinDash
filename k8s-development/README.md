@@ -11,6 +11,6 @@ Presently, I am able to host the frontend on a cluster. There is a known configu
 - Cluster deletion script
 
 ## Resources
-https://jamesdefabia.github.io/docs/getting-started-guides/docker/  
-https://computingforgeeks.com/how-to-run-local-kubernetes-clusters-in-docker/  
-https://github.com/kubernetes-sigs/kind  
+- https://jamesdefabia.github.io/docs/getting-started-guides/docker/
+- https://computingforgeeks.com/how-to-run-local-kubernetes-clusters-in-docker/
+- https://github.com/kubernetes-sigs/kind
