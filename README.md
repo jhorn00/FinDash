@@ -1,9 +1,12 @@
 # FinanceDashboard
 Financial dashboard application aimed at data visualization for user transaction data.  
+
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
 ## Status
-This project is a work-in-progress. [The author](https://github.com/jhorn00) works full-time as a SWE and lacks the time to work this project daily, weekly, or even monthly. Progress will continue, one way or another.
+This project is a work-in-progress. [The author](https://github.com/jhorn00) works full-time as a SWE and lacks the time to work this project daily, weekly, or even monthly. Progress will continue, one way or another.  
+
+[A sample release is available to mess with here](http://dawsonhorn.net/). Please do not upload any personal identifiable data. Note that all users share the same user at the moment (ideally too little traffic to matter right now). Acceptable uploads are CSVs with a date column followed by a number column, no column headers for now. There are some sample files provided in the repo under ```samples/```.
 
 ## Future Plans
 The following are planned features or improvements:
