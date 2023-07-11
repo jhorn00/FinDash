@@ -1,7 +1,7 @@
 # FinanceDashboard
 Financial dashboard application aimed at data visualization from user transaction data.  
 
-<u>Given significant time constraints</u>, prioritizing "completeness" took precedence over polish for the initial project.  
+**Given significant time constraints**, prioritizing "completeness" took precedence over polish for the initial project.  
 
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
