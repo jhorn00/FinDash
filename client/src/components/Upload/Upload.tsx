@@ -1,7 +1,13 @@
-import { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import "./Upload.css";
+
+// Interface to define props type
+interface UploadProps {
+  accountOptions: string[];
+  onUploadComplete: () => void;
+}
 
 // Interface to act as form data type
 interface FormData {
@@ -11,7 +17,7 @@ interface FormData {
   newAccountName: string;
 }
 
-function Upload() {
+function Upload({ accountOptions, onUploadComplete }: UploadProps) {
   // Form state
   const [formData, setFormData] = useState<FormData>({
     balance: "",
@@ -19,21 +25,6 @@ function Upload() {
     selectedAccount: "",
     newAccountName: "",
   });
-
-  const [accountOptions, setAccountOptions] = useState<string[]>([]);
-  useEffect(() => {
-    fetchNames(); // Call the function to fetch the names when the component mounts
-  }, []);
-
-  const fetchNames = async () => {
-    try {
-      const response = await axios.get("/api/accounts/names");
-      const accountNames = response.data; // Assuming the response data is an array of names
-      setAccountOptions(accountNames);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   // Balance text field handling
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -83,6 +74,12 @@ function Upload() {
 
     // Database API post with file list and balance
     await sendToDatabase();
+
+    // TODO: Right now this does not consider success or failure, just completion. There should be nothing new on error.
+    // If there was a new account made
+    if (formData.newAccountName.length > 0) {
+      onUploadComplete();
+    }
 
     // Reset form data
     setFormData({
