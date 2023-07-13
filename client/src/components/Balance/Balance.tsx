@@ -46,7 +46,7 @@ function Balance() {
 
   const getRows = useCallback(
     async (timeframe: Timeframe) => {
-      var newBalance = {
+      let newBalance = {
         xData: Array<Moment>(),
         yData: Array<number>(),
       };

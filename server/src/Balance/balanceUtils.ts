@@ -58,7 +58,7 @@ async function handleBalances(account_id: number, currentBalance: number) {
       .catch(err => console.log("PG ERROR", err));
 
   // Need to calculate the net transaction amount for each day
-  var netTransaction: Map<string, number> = new Map(); // Have to use string since objects (like Date) are compared by reference
+  let netTransaction: Map<string, number> = new Map(); // Have to use string since objects (like Date) are compared by reference
   rows.forEach((element) => {
     // Process money string
     const noDollar = element.transaction_val.replace("$", "");
@@ -82,8 +82,8 @@ async function handleBalances(account_id: number, currentBalance: number) {
 
   // Because JS maps are ordered by insertion, and the rows list was sorted by date,
   // the rolling account balance can be calculated by traversing the map from the head.
-  var rollingBalance = currentBalance;
-  var rollingBalances = Array<BalanceType>();
+  let rollingBalance = currentBalance;
+  let rollingBalances = Array<BalanceType>();
   netTransaction.forEach((value, key) => {
     const totalTransaction: BalanceType = {
       id: -1, // TODO: This is literally just wasted space, maybe make new type?

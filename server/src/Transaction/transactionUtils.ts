@@ -11,7 +11,7 @@ interface TransactionType {
 // This is async because it needs to await an async function it uses (query)
 async function insertTransactions(dates: string[], values: number[], accountIds: number[]) {
     // Push to transaction table
-    for (var index = 0; index < accountIds.length; index++){
+    for (let index = 0; index < accountIds.length; index++){
         await pgClient
         .query("INSERT INTO transactions (account_id, date_val, transaction_val) VALUES($1, $2, $3)", [accountIds[index], dates[index], values[index]])
         .catch(err => console.log("PG ERROR", err));

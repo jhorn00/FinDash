@@ -21,7 +21,7 @@ function NetWorth() {
   const [netWorth, setNetWorth] = useState(initServerState);
 
   const getRows = useCallback(async (timeframe: Timeframe) => {
-    var newNetWorth = {
+    let newNetWorth = {
       xData: Array<Moment>(),
       yData: Array<number>(),
     };
