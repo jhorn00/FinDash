@@ -27,7 +27,7 @@ function Home() {
           <ol>
             <li>Select menu icon in top left corner of application.</li>
             <li>Select the 'Profile' dropdown.</li>
-            <li>Select 'Profile Settings'.</li>
+            <li>Select 'Account Uploads'.</li>
             <li>
               <strong>[Optional]</strong> If you would like to test with only
               the data you are uploading, select 'Clear Database'.

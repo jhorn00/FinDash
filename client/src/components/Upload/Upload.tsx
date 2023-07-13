@@ -1,6 +1,6 @@
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import axios from "axios";
-import { Form, Container } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import "./Upload.css";
 
 // Interface to act as form data type

@@ -21,7 +21,9 @@ export function NavBar() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="font-weight-bold">
-            Directory
+            <a href="/" className="text-decoration-none text-black">
+              FinDash
+            </a>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
@@ -37,7 +39,7 @@ export function NavBar() {
                       href="/profile"
                       className="text-decoration-none text-black"
                     >
-                      Profile Settings
+                      Account Uploads
                     </a>
                   </li>
                 </ul>
@@ -74,10 +76,11 @@ export function NavBar() {
                 </ul>
               </Accordion.Body>
             </Accordion.Item>
-            <Accordion.Item eventKey="2" className="border-0">
+            {/* Hold off on this until stock features are ready */}
+            {/* <Accordion.Item eventKey="2" className="border-0">
               <Accordion.Header>Stocks</Accordion.Header>
               <Accordion.Body>Links related to stocks go here.</Accordion.Body>
-            </Accordion.Item>
+            </Accordion.Item> */}
           </Accordion>
         </Offcanvas.Body>
       </Offcanvas>

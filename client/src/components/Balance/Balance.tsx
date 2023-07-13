@@ -44,6 +44,9 @@ function Balance() {
   // balance useState initialized with empty arrays
   const [balance, setBalance] = useState(initServerState);
 
+  // Active button useState initialized with empty string so all buttons are unselected
+  const [activeButton, setActiveButton] = useState("");
+
   const getRows = useCallback(
     async (timeframe: Timeframe) => {
       let newBalance = {
@@ -103,6 +106,7 @@ function Balance() {
       return;
     }
     getRows(timeframe);
+    setActiveButton(e.target.name);
   };
 
   return (
@@ -122,7 +126,11 @@ function Balance() {
           <button
             name="1w"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "1w"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             1w
@@ -130,7 +138,11 @@ function Balance() {
           <button
             name="1mo"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "1mo"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             1mo
@@ -138,7 +150,11 @@ function Balance() {
           <button
             name="3mo"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "3mo"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             3mo
@@ -146,7 +162,11 @@ function Balance() {
           <button
             name="6mo"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "6mo"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             6mo
@@ -154,7 +174,11 @@ function Balance() {
           <button
             name="1yr"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "1yr"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             1yr
@@ -162,7 +186,11 @@ function Balance() {
           <button
             name="2yr"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "2yr"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             2yr
@@ -170,7 +198,11 @@ function Balance() {
           <button
             name="5yr"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "5yr"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             5yr
@@ -178,7 +210,11 @@ function Balance() {
           <button
             name="10yr"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "10yr"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             10yr
@@ -186,7 +222,11 @@ function Balance() {
           <button
             name="Max"
             type="button"
-            className="btn btn-outline-success"
+            className={`btn ${
+              activeButton === "Max"
+                ? "btn-success selected"
+                : "btn-outline-success"
+            }`}
             onClick={handleTimeframeChange}
           >
             Max

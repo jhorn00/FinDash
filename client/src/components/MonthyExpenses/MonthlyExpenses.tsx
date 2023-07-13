@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./MonthlyExpenses.css";
 import axios from "axios";
 import { BarChart } from "../BarChart/BarChart";
@@ -52,7 +52,6 @@ function MonthlyExpenses() {
     }
 
     // Get request for all values
-    // NGINX will handle routing /api endpoints to the server
     const data = await axios
       .get("/api/transactions/net")
       .then(function (response) {
@@ -115,9 +114,9 @@ function MonthlyExpenses() {
     setMonthlyExpenses(newMonthlyExpenses);
   }, []);
 
-  const handleMonthlyExpensesChange = (e: any) => {
+  useEffect(() => {
     getRows();
-  };
+  }, [getRows]);
 
   return (
     <div className="monthly-expenses">
@@ -126,7 +125,6 @@ function MonthlyExpenses() {
         xData={monthlyExpenses.xData}
         yData={monthlyExpenses.yData}
       />
-      <button onClick={handleMonthlyExpensesChange}>press me</button>
     </div>
   );
 }

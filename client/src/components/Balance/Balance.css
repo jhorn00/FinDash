@@ -20,3 +20,7 @@
     padding-top: 10px;
     padding-bottom: 20px;
 }
+
+.selected {
+    background-color: #198754 !important;
+  }
