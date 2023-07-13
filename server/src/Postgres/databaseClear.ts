@@ -22,10 +22,11 @@ clearRouter.delete("/", async (req, res) => {
       accountIds.push(element.id);
     });
 
-    pgClient.query("DELETE FROM transactions WHERE account_id = ANY($1)", [accountIds]); // TODO: Real user ids
-    pgClient.query("DELETE FROM balances WHERE account_id = ANY($1)", [accountIds]);
-    pgClient.query("DELETE FROM accounts WHERE id = ANY($1)", [accountIds]); // TODO: This is likely redundant
-    pgClient.query("DELETE FROM networths WHERE user_id = $1", [user_id]); // TODO: Real user ids
+    // Add await so client side can refresh account list as soon as there is a response
+    await pgClient.query("DELETE FROM transactions WHERE account_id = ANY($1)", [accountIds]); // TODO: Real user ids
+    await pgClient.query("DELETE FROM balances WHERE account_id = ANY($1)", [accountIds]);
+    await pgClient.query("DELETE FROM accounts WHERE id = ANY($1)", [accountIds]); // TODO: This is likely redundant
+    await pgClient.query("DELETE FROM networths WHERE user_id = $1", [user_id]); // TODO: Real user ids
   
     // Break glass in case of fire
     // pgClient.query("DROP TABLE transactions CASCADE");
