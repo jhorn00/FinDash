@@ -7,7 +7,7 @@ import { checkAccountNameExists, getAccountFromUserIdAccountName } from "../Acco
 // Get Balance Range
 balanceRouter.get("/", async (req, res) => {
     const getTimeRangeQuery = (account_id: number, interval: number, unit: string) => {
-      var intervalQuery: string;
+      let intervalQuery: string;
       // Check which type of unit we are dealing with
       // Weeks can be in else because validity is verified before function call
       if (unit === "months") {

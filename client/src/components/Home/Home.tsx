@@ -4,6 +4,10 @@ function Home() {
   return (
     <div className="home">
       <h1>FinDash</h1>
+      <p>
+        Containerized transaction-based data visualization application created
+        and hosted in a short time-frame.
+      </p>
       <h2>Usage</h2>
       <main>
         <section id="step1" className="section">

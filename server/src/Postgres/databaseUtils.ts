@@ -50,7 +50,7 @@ async function handleUploadedData(files: Express.Multer.File[], balance: number,
     const username = "generic_user";
     const user = await getUserFromUsername(username);
     const user_id = user.id;
-    var account_name = selectedAccount;
+    let account_name = selectedAccount;
 
     // If all files were parsed successfully, create new accounts as needed
     if (selectedAccount === "new"){
@@ -115,8 +115,8 @@ async function insertToTables(dates: string[], values: number[], accountIds: num
 // It is also nice to be able to spin off async function calls as-needed for data handling
 async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
     // Lists to store valid dates and values
-    var dates = Array<string>();
-    var values = Array<number>();
+    let dates = Array<string>();
+    let values = Array<number>();
     try{
         // TODO: define records type
         const response = await new Promise<UploadHandlerResponse>((resolve, reject) => {
@@ -143,7 +143,7 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
                 }
             
                 // Validate content types
-                for (var key in records) {
+                for (let key in records) {
                     const row = records[key];
                     
                     // Date

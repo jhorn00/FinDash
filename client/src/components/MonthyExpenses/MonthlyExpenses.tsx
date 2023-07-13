@@ -77,7 +77,7 @@ function MonthlyExpenses() {
           // Check month mapping and correct data as-needed
           if (monthMap.get(thisMonth) !== nextMonth) {
             // Start at the first missing month and add all missing entries
-            var currentMonth = monthMap.get(thisMonth);
+            let currentMonth = monthMap.get(thisMonth);
             while (currentMonth && currentMonth !== nextMonth) {
               // Create new month with no expenses (that is why it would be abscent)
               const newEntry: MonthlyExpenseType = {
