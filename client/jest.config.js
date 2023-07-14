@@ -1,6 +1,11 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
-    // Add more Jest configuration options as needed
+    "transform": {
+        "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+        "node_modules/(?!variables/.*)"
+    ]
 };
   
