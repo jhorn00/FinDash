@@ -12,6 +12,8 @@ on:
 
 jobs:
   build:
+    # specify that it should only run if testing is successful
+    needs: testing
     runs-on: ubuntu-latest
 
     steps:
