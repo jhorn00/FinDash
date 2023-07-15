@@ -1,0 +1,15 @@
+.disclaimer {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+  
+.disclaimer-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.disclaimer-heading {
+    font-weight: bold;
+}

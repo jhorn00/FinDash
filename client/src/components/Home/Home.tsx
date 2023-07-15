@@ -1,4 +1,5 @@
 import "./Home.css";
+import Disclaimer from "../Disclaimer/Disclaimer";
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
         Containerized transaction-based data visualization application created
         and hosted in a short time-frame.
       </p>
+      <Disclaimer />
       <h2>Usage</h2>
       <main>
         <section id="step1" className="section">
