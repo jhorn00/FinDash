@@ -9,5 +9,5 @@ test("renders home page and checks for FinDash", () => {
   render(<Home />);
   // Check that home has the text "FinDash" in it
   const elementsWithText = screen.getAllByText(/FinDash/i);
-  expect(elementsWithText).toBeGreaterThan(0);
+  expect(elementsWithText.length).toBeGreaterThan(0);
 });
