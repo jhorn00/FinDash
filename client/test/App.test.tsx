@@ -8,6 +8,6 @@ import Home from "../src/components/Home/Home";
 test("renders home page and checks for FinDash", () => {
   render(<Home />);
   // Check that home has the text "FinDash" in it
-  const linkElement = screen.getByText(/FinDash/i);
+  const linkElement = screen.getAllByText(/FinDash/i);
   expect(linkElement).toBeInTheDocument();
 });
