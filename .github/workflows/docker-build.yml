@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     # specify that it should only run if unit testing is successful
-    needs: tests
+    needs: tests.outputs.tests_job_status
 
     runs-on: ubuntu-latest
 
