@@ -15,9 +15,9 @@ function Disclaimer() {
         financial data.
       </p>
       <p className="disclaimer-text">
-        Therefore, it is recommended to upload only fake data, as anyone with
-        the link can view your dates/transactions. For real transaction data,
-        please self-host FinDash on a development or local release environment.
+        Therefore, it is recommended to upload only fake data. For real
+        transaction data, please self-host FinDash on a development or local
+        release environment.
       </p>
     </div>
   );
