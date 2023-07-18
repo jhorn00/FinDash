@@ -13,7 +13,7 @@ uploadRouter.post("/", upload.array('files'), async (req, res) => {
       return;
     }
     
-    // Validate body fields
+    // Validate required body fields existence
     if (!req.body.balance || !req.body.selectedAccount) {
       const message = "'Balance' or 'selectedAccount' invalid.";
       console.log(message);

@@ -9,7 +9,7 @@ If node is unable to find a module in a container (when it is otherwise able to 
 3. Try starting the app again with `docker-compose up --build`
 
 ## Notes
-
+TODO: Switch from ts-node to tsc for deployment, maybe for everything
 
 ## References
 https://github.com/expressjs/multer
