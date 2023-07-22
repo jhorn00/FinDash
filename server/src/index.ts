@@ -4,13 +4,11 @@ import { keys } from "./keys";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import multer from "multer";
 
 // Express Application setup
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-const upload = multer({ dest: 'uploads/' });
 
 // Import routes
 import uploadRouter from "./Postgres/databaseUpload";
@@ -42,4 +40,4 @@ app.listen(5000, (err?: Error) => {
   }
 });
 
-export { app, upload };
+export { app };

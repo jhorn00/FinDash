@@ -112,4 +112,5 @@ async function iterateBalanceData(balanceData: BalanceType[]) {
   await Promise.all(promises);
 }
 
-export { convertIntermediateToBalance, handleBalances, iterateBalanceData, BalanceType, IntermediateBalanceType, TransactionType };
+export { convertIntermediateToBalance, handleBalances, iterateBalanceData };
+export type { BalanceType, IntermediateBalanceType, TransactionType };

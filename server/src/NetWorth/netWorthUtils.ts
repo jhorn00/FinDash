@@ -121,4 +121,5 @@ async function iterateNetWorthData(netWorthData: NetWorthType[]) {
   await Promise.all(promises);
 }
 
-export { handleNetWorth, iterateNetWorthData, NetWorthType };
+export { handleNetWorth, iterateNetWorthData };
+export type { NetWorthType };

@@ -80,4 +80,5 @@ async function getUserAccounts(user_id: number) {
     return accountRows;
 }
 
-export { AccountType, checkAccountNameExists, createAccount, getAccountFromUserIdAccountName, getUserAccounts };
+export { checkAccountNameExists, createAccount, getAccountFromUserIdAccountName, getUserAccounts };
+export type { AccountType };

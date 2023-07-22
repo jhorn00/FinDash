@@ -18,4 +18,5 @@ async function insertTransactions(dates: string[], values: number[], accountIds:
     }
 }
 
-export { insertTransactions, TransactionType };
+export { insertTransactions };
+export type { TransactionType };

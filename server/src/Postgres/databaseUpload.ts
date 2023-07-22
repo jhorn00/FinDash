@@ -1,7 +1,9 @@
-import { upload } from "../index";
+import multer from "multer";
 import express from "express";
 const uploadRouter = express.Router();
 import { handleUploadedData, UploadHandlerResponse } from "./databaseUtils";
+
+const upload = multer({ dest: 'uploads/' });
 
 // Handle user file uploads
 uploadRouter.post("/", upload.array('files'), async (req, res) => {

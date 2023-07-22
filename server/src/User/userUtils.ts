@@ -23,4 +23,5 @@ async function getUserFromUsername(username: string) {
     return user;
 }
 
-export { getUserFromUsername, UserType }
+export { getUserFromUsername };
+export type { UserType };

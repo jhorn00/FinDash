@@ -191,4 +191,5 @@ async function parseFileContents(data: Buffer): Promise<UploadHandlerResponse> {
 }
 
 
-export { handleUploadedData, UploadHandlerResponse };
+export { handleUploadedData };
+export type { UploadHandlerResponse };
