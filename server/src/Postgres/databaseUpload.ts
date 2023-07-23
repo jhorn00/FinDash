@@ -11,7 +11,7 @@ uploadRouter.post("/", upload.array('files'), async (req, res) => {
     if (!req.body || !req.files) {
       const message = "Body or 'files' invalid.";
       console.log(message);
-      res.send({ success: false, message: message });
+      res.status(400).json({ success: false, message: message });
       return;
     }
     
@@ -19,7 +19,7 @@ uploadRouter.post("/", upload.array('files'), async (req, res) => {
     if (!req.body.balance || !req.body.selectedAccount) {
       const message = "'Balance' or 'selectedAccount' invalid.";
       console.log(message);
-      res.send({ success: false, message: message });
+      res.status(400).json({ success: false, message: message });
       return;
     }
 
@@ -27,7 +27,8 @@ uploadRouter.post("/", upload.array('files'), async (req, res) => {
     if (req.body.selectedAccount === "new" && !req.body.newAccountName) {
       const message = "Selected account is 'new' and 'newAccountName' is invalid.";
       console.log(message);
-      res.send({success: false, message: message});
+      res.status(400).json({ success: false, message: message });
+      return;
     }
     
     const balanceStr: string = req.body.balance;
