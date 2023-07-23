@@ -52,6 +52,8 @@ uploadRouter.post("/", upload.array('files'), async (req, res) => {
 
     const files: { [fieldname: string]: Express.Multer.File[] } | Express.Multer.File[] = req.files;
 
+    console.log(files.length);
+
     // Handle case where files is not an array
     if (!Array.isArray(files)) {
       res.status(400).json({ success: false, message: "Invalid files" });

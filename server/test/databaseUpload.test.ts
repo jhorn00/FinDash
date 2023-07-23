@@ -4,11 +4,10 @@ import request from "supertest";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-const FormData = require('form-data');
-const { Readable } = require('stream'); // Required for the file mock
+import fs from "fs";
 
 describe('Upload Router', () => {
-    test('TEST: No file list.', async () => {
+    test('should respond with 400 if body or files are invalid', async () => {
         // Set up express
         const app = express();
         app.use(cors());
@@ -31,7 +30,7 @@ describe('Upload Router', () => {
         expect(response.statusCode).toBe(400);
         expect(response.body).toEqual({ success: false, message: "Body or 'files' invalid." });
     });
-
+  
     test('TEST: Empty file list.', async () => {
         // Set up express
         const app = express();
@@ -60,36 +59,35 @@ describe('Upload Router', () => {
         expect(response.body).toEqual({ success: false, message: "Body or 'files' invalid." });
     });
 
-    test('TEST: Invalid new account.', async () => {
+    test('TEST: Failure to parse single file.', async () => {
         // Set up express
         const app = express();
         app.use(cors());
         app.use(bodyParser.json());
         app.use("/upload", uploadRouter);
 
-        // Create form data for upload request
-        const formDataToSend = new FormData();
-        // Append test values
-        formDataToSend.append("balance", "1000");
-        // const junkFile = new File(["Junk data."], "junkFile.txt");
-        const fileList = new Array<File>(1);
-        fileList.forEach((file) => {
-            formDataToSend.append(`files`, file);
-        });
+        // Set request data
+        const endpoint = "/upload/";
+        const balance = "1000";
         const selectedAccount = "Generic Account 1";
-        formDataToSend.append("selectedAccount", selectedAccount);
         const newAccountName = "";
-        formDataToSend.append("newAccountName", newAccountName);
 
+        // Create a fake file
+        const fakeFileContents = "This is a fake file content.";
+        const fakeFile = new Blob([fakeFileContents], { type: "text/plain" }); // Use the native Blob constructor
+
+        const buffer = Buffer.from(await fakeFile.arrayBuffer());
         const response = await request(app)
-            .post("/upload/")
-            .send(formDataToSend);
+            .post(endpoint)
+            .set('Content-Type', `multipart/form-data`)
+            .field("balance", balance)
+            .field("selectedAccount", selectedAccount)
+            .field("newAccountName", newAccountName)
+            .attach('files', buffer, 'fake_file.txt');
 
         expect(response.statusCode).toBe(400);
-        expect(response.body).toEqual({ success: false, message: "Body or 'files' invalid." });
+        expect(response.body).toEqual({ success: false, message: "ERROR: Failed to parse file." });
     });
-  
-    // More test cases for other scenarios...
   
 });
   
