@@ -33,6 +33,8 @@ async function handleUploadedData(files: Express.Multer.File[], balance: number,
         // Parse file contents and return if failure
         const response = await parseFileContents(data);
         if(!response.success){
+            // Delete the file and return
+            fs.unlinkSync(file.path);
             return response;
         }
 
@@ -66,7 +68,6 @@ async function handleUploadedData(files: Express.Multer.File[], balance: number,
         console.log("Created new account " + newAccountName);
         account_name = newAccountName;
     }
-
 
     // Get account id for insertion
     const account = await getAccountFromUserIdAccountName(user_id, account_name);
