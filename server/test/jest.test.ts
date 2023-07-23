@@ -3,14 +3,8 @@
 import {describe, expect, test} from '@jest/globals';
 import { sum } from "./sample/sum";
 
-describe('sum correctness', () => {
-  test('adds 2 + 2 to equal 4', () => {
+describe("Verify jest testing", () => {
+  it("validates equality", () => {
     expect(sum(2, 2)).toBe(4);
-  });
-});
-
-describe('sum incorrectness', () => {
-  test('adds 2 + 2 not equal 5', () => {
-    expect(sum(2, 2)).not.toBe(5);
   });
 });

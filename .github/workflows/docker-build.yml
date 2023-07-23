@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     # specify that it should only run if unit testing is successful
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
