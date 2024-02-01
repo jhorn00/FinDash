@@ -10,6 +10,7 @@ The following assumes you are in a Linux environment with docker and docker-comp
 It is also assumed that if you are following these steps, you have this repository cloned locally.
 1. Run the start script: ```./start.bash```
 2. To stop: ```Ctrl+C``` (Recommended to let it stop gracefully)  
+3. You should see the application running on ```localhost:3050```
 
 That's it! The setup is relatively straight-forward, so docker-compose and docker should handle it all for you.  
 
