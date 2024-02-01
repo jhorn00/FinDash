@@ -6,7 +6,7 @@ Financial dashboard application aimed at data visualization from user transactio
 Subdirectories contain their own READMEs for instructions, troubleshooting, etc.
 
 ## Status
-Probably won't be touched again.
+Work happens when time and motivation meet.
 
 ## Author
 - [James Dawson Horn](https://github.com/jhorn00)
