@@ -1,15 +1,23 @@
+-- Create extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- Create users table
 CREATE TABLE IF NOT EXISTS users
 (
     id SERIAL PRIMARY KEY,
     username VARCHAR(40) NOT NULL,
     password VARCHAR(40) NOT NULL,
+    session UUID DEFAULT uuid_generate_v4(),
     CONSTRAINT unique_username UNIQUE (username)
 );
 
+-- Create admin account
+INSERT INTO users (id, username, password)
+VALUES(1, 'admin', 'asdf1234') ON CONFLICT (id) DO NOTHING;
+
 -- Create generic entry for users
 INSERT INTO users (id, username, password)
-VALUES(1, 'generic_user', 'asdf1234') ON CONFLICT (id) DO NOTHING;
+VALUES(2, 'generic_user', 'asdf1234') ON CONFLICT (id) DO NOTHING;
 
 -- Create accounts table
 CREATE TABLE IF NOT EXISTS accounts

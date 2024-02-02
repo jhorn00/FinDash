@@ -7,6 +7,7 @@ import Profile from "./components/Profile/Profile";
 import NetWorth from "./components/NetWorth/NetWorth";
 import Balance from "./components/Balance/Balance";
 import MonthlyExpenses from "./components/MonthyExpenses/MonthlyExpenses";
+import Login from "./components/Login/Login";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="networth" element={<NetWorth />} />
         <Route path="balance" element={<Balance />} />
         <Route path="monthlyexpenses" element={<MonthlyExpenses />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

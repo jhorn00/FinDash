@@ -18,6 +18,7 @@ import clearRouter from "./Postgres/databaseClear";
 import netWorthRouter from "./NetWorth/netWorthRoutes";
 import transactionRouter from "./Transaction/transactionRoutes";
 import accountRouter from "./Account/accountRoutes";
+import authRouter from "./Auth/authRoutes";
 import balanceRouter from "./Balance/balanceRoutes";
 
 // App endpoints
@@ -26,6 +27,7 @@ app.use("/clear", clearRouter);
 app.use("/networths", netWorthRouter);
 app.use("/transactions", transactionRouter);
 app.use("/accounts", accountRouter);
+app.use("/auth", authRouter);
 app.use("/balances", balanceRouter);
 
 // Verify responsiveness
